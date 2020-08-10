@@ -1,109 +1,83 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// import { FiLogIn } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
+
 import "./styles.css";
 import wls from "../../assets/wls.svg";
 
-import {
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  TextField,
-  Button,
-  Box,
-} from "@material-ui/core";
+import { Typography, Grid, TextField, Button, Box } from "@material-ui/core";
 
 export default function Login() {
+  const history = useHistory();
+
+  function handlePassaword() {
+    history.push("/passaword");
+  }
+
+  function handleAccount() {
+    history.push("/account");
+  }
+
   return (
-    <Grid container justify="center" alignItems="center">
-      {/* Background Azuk */}
-      <Grid className="background-blue" />
+    <form onSubmit={handlePassaword}>
+      <Grid container justify="center" alignItems="center">
+        {/* Background Azuk */}
+        <Grid className="background-blue" />
 
-      {/* Imagem */}
-      <Grid xs={12} align="center" className="image">
-        <img src={wls} />
-      </Grid>
-
-      {/* Card */}
-      <Grid xl={4} md={4} sm={6} xs={12} className="block-login">
-        <Grid>
-          <Box mt={2}>
-            <Typography variant="h4">Olá!</Typography>
-          </Box>
+        {/* Imagem */}
+        <Grid xs={12} align="center" className="image">
+          <img src={wls} />
         </Grid>
-        <Grid>
-          <Box mt={6}>
-            <TextField
-              id="standard-password-input"
-              label="CPF ou E-mail"
-              type="text"
-              fullWidth
-            />
-          </Box>
+
+        {/* Card */}
+        <Grid xl={4} md={4} sm={6} xs={12} className="block-login">
+          {/* Mensagem */}
           <Grid>
-            <Box mt={10}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
+            <Box mt={2} color="#1C1C1C">
+              <Typography variant="h4">Olá!</Typography>
+            </Box>
+          </Grid>
+
+          {/* Input */}
+          <Grid>
+            <Box mt={6}>
+              <TextField
+                id="standard-password-input"
+                label="CPF ou E-mail"
+                type="text"
                 fullWidth
-                disableRipple 
-              >
-                Continuar
-              </Button>
+                required
+              />
             </Box>
 
-            <Box mt={2}>
-              <Button
-                href="#text-buttons"
-                color="primary"
-                fullWidth
-                size="large"
-              >
-                Criar conta
-              </Button>
+            {/* Button */}
+            <Grid>
+              <Box mt={10}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                  type="submit"
+                >
+                  Continuar
+                </Button>
+              </Box>
 
-              {/* <Link className="link" to="create-account">
-                Criar conta
-              </Link> */}
-            </Box>
+              <Box mt={2}>
+                <Button
+                  href="#text-buttons"
+                  color="primary"
+                  fullWidth
+                  size="large"
+                  onClick={handleAccount}
+                >
+                  Criar conta
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
-
-    // <Card>
-    //       <CardContent>
-    //         <Typography color="textSecondary" gutterBottom>
-    //           oioi
-    //         </Typography>
-    //       </CardContent>
-    //     </Card>
-
-    // <div className="login-container">
-    //   <header className="header">
-    //     <img src={download} alt="WLS Soluções"></img>
-    //     <span>Contato</span>
-    //   </header>
-
-    //   <div className="container-login">
-    //     <section className="form">
-    //       <form>
-    //         <h1>Faça seu Login</h1>
-    //         <input placeholder="CPF ou e-mail" />
-
-    //         <button className="button" type="submit">
-    //           Continuar
-    //         </button>
-
-    //         <Link className="back-link" to="register">
-    //           {/* <FiLogIn size={16} color="#e02041" /> */}
-    //           Não tenho cadastro
-    //         </Link>
-    //       </form>
-    //     </section>
-    //   </div>
-    // </div>
+    </form>
   );
 }

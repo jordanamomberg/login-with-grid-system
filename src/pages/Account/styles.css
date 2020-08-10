@@ -1,0 +1,25 @@
+.header-blue {
+    background-color: #0657fa;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+
+.block-account {
+    padding: 0 54px 54px;
+    background: #ececec;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: relative;
+}
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
